@@ -1,0 +1,10 @@
+run this:
+
+mamba install conda-forge::flask
+    cd ./frontend
+    npm install
+    npm run dev
+
+
+
+vips dzsave TCGA-05-4244-01A-01-BS1.tif TCGA-05-4244-01A-01-BS1 --tile-size=512 --overlap=1 --suffix='.jpg[Q=90]'

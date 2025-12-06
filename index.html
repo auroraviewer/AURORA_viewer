@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>H&E + Gene Expression Viewer</title>
+
+    <!-- Load OpenSeadragon BEFORE React -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/openseadragon@5.0.1/dist/openseadragon.min.js"></script> -->
+
+    <style>
+      body {
+        margin: 0;
+        background: #000;
+        overflow: hidden;
+      }
+      #viewer1, #viewer2 {
+        width: 50%;
+        height: 90vh;
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- SITE HEADER -->
+    <header style="
+        width: 100%;
+        background: #111;
+        color: white;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-sizing: border-box;
+    ">
+      <!-- LOGO -->
+      <img src="logo.png" alt="Logo" style="height: 50px; width: 76px;" />
+
+      <!-- TITLE -->
+      <h1
+        style="
+          margin: 0;
+          font-size: 30px;
+          font-weight: 600;
+          text-align: center;
+          width: 100%;
+        "
+      >
+        H&E and Gene Expression Viewer
+      </h1>
+    </header>
+
+  <!-- CONTROLS -->
+  <div class="controls" style="
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 8px 12px;
+      border-bottom: 1px solid #ddd;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 14px;
+  ">
+
+  <!-- LEFT: H&E image controls -->
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <!-- Descriptive text -->
+    <div style="font-weight: bold; color: #fff; margin-bottom: 4px;">Load H&E Image</div>
+
+    <!-- Local file load -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="color: #fff; font-size: 14px;">Locally load H&E image(.dzi):</span>
+      <input id="fileImage" type="file" accept=".dzi">
+    </div>
+
+    <!-- URL load -->
+    <label style="font-weight: 500; color: #fff;">URL:</label>
+    <div style="display:flex; gap:4px;">
+      <input id="urlImage" type="text" placeholder="https://example.com/image.dzi">
+      <button id="btnLoadImageUrl">Load Image</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Gene Prediction controls -->
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <!-- Descriptive text -->
+    <div style="font-weight: bold; color: #fff; margin-bottom: 4px;">Load Gene Prediction</div>
+
+    <!-- Local JSON load -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="color: #fff; font-size: 14px;">Locally load prediction(.json)  :</span>
+      <input id="fileJson" type="file" accept=".json">
+    </div>
+
+    <!-- URL load -->
+    <label style="font-weight: 500; color: #fff;">URL:</label>
+    <div style="display:flex; gap:4px;">
+      <input id="urlJson" type="text" placeholder="https://example.com/prediction.json">
+      <button id="btnLoadJsonUrl">Load JSON</button>
+    </div>
+  </div>
+
+  </div>
+
+
+  <script>
+    // Local file triggers (existing)
+    document.getElementById("btnImage").onclick = () => document.getElementById("fileImage").click();
+    document.getElementById("btnJson").onclick = () => document.getElementById("fileJson").click();
+
+    // Load H&E image from URL
+    document.getElementById("btnLoadImageUrl").onclick = () => {
+      const url = document.getElementById("urlImage").value.trim();
+      if (!url) return alert("Enter a valid image URL");
+      window.onImageUrlLoad && window.onImageUrlLoad(url);
+    };
+
+    // Load JSON prediction from URL
+    document.getElementById("btnLoadJsonUrl").onclick = () => {
+      const url = document.getElementById("urlJson").value.trim();
+      if (!url) return alert("Enter a valid JSON URL");
+
+      fetch(url)
+        .then(res => {
+          if (!res.ok) throw new Error("Failed to fetch JSON");
+          return res.json();
+        })
+        .then(data => {
+          window.onJsonUrlLoad && window.onJsonUrlLoad(data);
+        })
+        .catch(err => alert(err));
+    };
+  </script>
+
+    <!-- React mounts here -->
+    <div id="root"></div>
+
+    
+
+    <!-- React entry -->
+    <script type="module" src="src/main.jsx"></script>
+  </body>
+
+</html>
