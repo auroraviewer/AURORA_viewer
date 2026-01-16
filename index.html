@@ -5,90 +5,140 @@
     <title>H&E + Gene Expression Viewer</title>
 
     <style>
-      body {
-        margin: 0;
-        background: #000;
-        overflow: hidden;
-        font-family: sans-serif;
+    body {
+      margin: 0;
+      background: #000;
+      font-family: sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #root {
+      flex: 1;
+      min-height: 0; /* critical for OpenSeadragon */
+    }
+
+    #viewer1,
+    #viewer2,
+    #viewer3 {
+      width: 100%;
+      height: 100%;
+    }
+
+      .control-button {
+        padding: 6px 14px;
+        background: #222;
+        color: white;
+        border: 1px solid #555;
+        cursor: pointer;
+        border-radius: 4px;
       }
 
-      #root {
-        width: 100vw;
-        height: 100vh;
-      }
-
-      /* OpenSeadragon viewers */
-      #viewer1,
-      #viewer2,
-      #viewer3 {
-        width: 100%;
-        height: 100%;
+      .control-button:hover {
+        background: #333;
       }
     </style>
-    <script type="module" crossorigin src="/gene_pred_viewer/assets/index-D2f_Aj8o.js"></script>
+    <script type="module" crossorigin src="/gene_pred_viewer/assets/index-BJT9lIk1.js"></script>
   </head>
 
   <body>
     <!-- HEADER -->
-    <header style="
-      width: 100%;
-      background: #111;
-      color: white;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      box-sizing: border-box;">
+    <header
+      style="
+        width: 100%;
+        background: #111;
+        color: white;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-sizing: border-box;
+      "
+    >
       <img src="/gene_pred_viewer/logo.png" alt="Logo" style="height: 50px; width: 76px;" />
-      <h1 style="margin: 0; font-size: 28px; font-weight: 600; width: 100%; text-align:center;">
+      <h1
+        style="
+          margin: 0;
+          font-size: 28px;
+          font-weight: 600;
+          width: 100%;
+          text-align: center;
+        "
+      >
         H&E and Gene Expression Viewer
       </h1>
     </header>
 
     <!-- CONTROLS -->
-    <div style="
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 10px 16px;
-      border-bottom: 1px solid #444;
-      gap: 20px;
-      flex-wrap: wrap;
-      color: white;
-    ">
-
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 10px 16px;
+        border-bottom: 1px solid #444;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: white;
+      "
+    >
+      <!-- H&E -->
       <div>
         <b>Load H&E Image</b>
-        <div style="margin-top:6px;">
-          <input id="fileImage" type="file" accept=".png,.jpg,.jpeg" />
+        <div style="margin-top: 6px;">
+          <input
+            id="fileImage"
+            type="file"
+            accept=".png,.jpg,.jpeg"
+            style="display: none"
+          />
+          <button
+            class="control-button"
+            onclick="document.getElementById('fileImage').click()"
+          >
+            Select H&E Image
+          </button>
         </div>
-
-
-        <!--
-        <div style="margin-top:6px;">
-          URL:
-          <input id="urlImage" type="text" placeholder="https://example.com/image.jpg">
-          <button id="btnLoadImageUrl">Load</button>
-        </div>
-      -->
-
-
       </div>
 
-
-      
-
+      <!-- Patch predictions -->
       <div>
         <b>Load Patch Predictions</b>
-        <div>
-          <input id="filePatchPredictions" type="file" accept=".png,.jpg,.jpeg" multiple />
+        <div style="margin-top: 6px;">
+          <input
+            id="filePatchPredictions"
+            type="file"
+            accept=".png,.jpg,.jpeg"
+            multiple
+            style="display: none"
+          />
+          <button
+            class="control-button"
+            onclick="document.getElementById('filePatchPredictions').click()"
+          >
+            Select Patch Prediction Images
+          </button>
         </div>
       </div>
 
+      <!-- iStar predictions -->
       <div>
         <b>Load iStar Predictions</b>
-        <div>
-          <input id="fileiStarPredictions" type="file" accept=".png,.jpg,.jpeg" multiple />
+        <div style="margin-top: 6px;">
+          <input
+            id="fileiStarPredictions"
+            type="file"
+            accept=".png,.jpg,.jpeg"
+            multiple
+            style="display: none"
+          />
+          <button
+            class="control-button"
+            onclick="document.getElementById('fileiStarPredictions').click()"
+          >
+            Select iStar Prediction Images
+          </button>
         </div>
       </div>
     </div>
@@ -96,13 +146,6 @@
     <!-- React mount -->
     <div id="root"></div>
 
-
-    <script>
-      document.getElementById("btnLoadImageUrl").onclick = () => {
-        const url = document.getElementById("urlImage").value.trim();
-        if (!url) return alert("Enter a URL");
-        window.onImageUrlLoad?.(url);
-      };
-    </script>
+    <!-- React entry -->
   </body>
 </html>
