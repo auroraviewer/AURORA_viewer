@@ -31,5 +31,5 @@ patch-wise and iStar gene expression predictions.
 ### 4. Select the gene
 - Select the gene of interest by clicking the dropdown above the text "Load iStar Prediction".
 
-<img width="960" height="540" alt="無題のプレゼンテーション" src="https://github.com/user-attachments/assets/4ef41957-b550-4b97-b000-227b741fb8bd" />
+![H&E + Gene Viewer Screenshot](assets/screenshot4.png)
 
