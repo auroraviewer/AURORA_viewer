@@ -1,5 +1,5 @@
 # AURORA H&E + Gene Expression Viewer
-
+ 
 An interactive web-based viewer for visualizing H&E slide images alongside
 patch-wise and iStar gene expression predictions.
 
