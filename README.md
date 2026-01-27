@@ -4,12 +4,13 @@ An interactive web-based viewer for visualizing H&E slide images alongside
 patch-wise and iStar gene expression predictions.
 
 ## Input File:
+You can download the following input files from XXX:
 
-**{name of dataset}.png** - The H&E image of the sample
+- **{name of dataset}.png** - The H&E image of the sample
 
-**{name of dataset}-{gene name}-patchwise-224.png** - Patch prediction of the gene in the sample
+- **{name of dataset}-{gene name}-patchwise-224.png** - Patch prediction of the gene in the sample
 
-**{name of dataset}-iStar-{gene name}.png** - Patch prediction of the gene in the sample
+- **{name of dataset}-iStar-{gene name}.png** - Patch prediction of the gene in the sample
 
 ## Instructions:
 
