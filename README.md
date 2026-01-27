@@ -15,17 +15,17 @@ You can download the following input files from XXX:
 ## Instructions:
 
 ### 1. Load H&E image to the website
-- Load the H&E image sample by clicking the button under the text "Load H&E Image", then select the image of the sample
+- Load the H&E image sample by clicking the button under the text "Load H&E Image", then select the image of the sample.
   
 ![H&E + Gene Viewer Screenshot](assets/screenshot1.png)
 
 ### 2. Load Patch Predictions
-- Load the patch predictions by clicking the button under the text "Load Patch Prediction", then inside the folder "patchwise_predictions", select the prediction plots. You can upload multiple samples by holding **control key** and click. You can upload all samples by pressing **control key + A**
+- Load the patch predictions by clicking the button under the text "Load Patch Prediction", then inside the folder "patchwise_predictions", select the prediction plots. You can upload multiple samples by holding **control key** and click. You can upload all samples by pressing **control key + A** (Windows) or **command + A** (Mac).
 
 ![H&E + Gene Viewer Screenshot](assets/screenshot2.png)
 
 ### 3. Load iStar Predictions
-- Load the iStar predictions by clicking the button under the text "Load iStar Prediction", then inside the folder "iStar_predictions", select the prediction plots. You can upload multiple samples by holding **control key** and click. You can upload all samples by pressing **control key + A**
+- Load the iStar predictions by clicking the button under the text "Load iStar Prediction", then inside the folder "iStar_predictions", select the prediction plots. You can upload multiple samples by holding **control key** and click. You can upload all samples by pressing **control key + A** (Windows) or **command + A** (Mac).
 
 ![H&E + Gene Viewer Screenshot](assets/screenshot3.png)
 
