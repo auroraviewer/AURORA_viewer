@@ -1,15 +1,16 @@
 # AURORA H&E + Gene Expression Viewer
-
+ 
 An interactive web-based viewer for visualizing H&E slide images alongside
 patch-wise and iStar gene expression predictions.
 
 ## Input File:
+You can download the following input files from XXX:
 
-**{name of dataset}.png** - The H&E image of the sample
+- **{name of dataset}.png** - The H&E image of the sample
 
-**{name of dataset}-{gene name}-patchwise-224.png** - Patch prediction of the gene in the sample
+- **{name of dataset}-{gene name}-patchwise-224.png** - Patch prediction of the gene in the sample
 
-**{name of dataset}-iStar-{gene name}.png** - Patch prediction of the gene in the sample
+- **{name of dataset}-iStar-{gene name}.png** - Patch prediction of the gene in the sample
 
 ## Instructions:
 
@@ -31,5 +32,5 @@ patch-wise and iStar gene expression predictions.
 ### 4. Select the gene
 - Select the gene of interest by clicking the dropdown above the text "Load iStar Prediction".
 
-<img width="960" height="540" alt="無題のプレゼンテーション" src="https://github.com/user-attachments/assets/4ef41957-b550-4b97-b000-227b741fb8bd" />
-
+![H&E + Gene Viewer Screenshot](assets/screenshot4.png)
+ 
