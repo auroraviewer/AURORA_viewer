@@ -4,7 +4,7 @@ An interactive web-based viewer for visualizing H&E slide images alongside
 patch-wise and iStar gene expression predictions.
 
 ## Input File:
-You can download the following input files from XXX:
+You can download the following input files from [HuggingFace](https://huggingface.co/datasets/AURORAData/prediction_plots):
 
 - **{name of dataset}.png** - The H&E image of the sample
 
